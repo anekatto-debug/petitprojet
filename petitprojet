@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ambassade de Côte d'Ivoire — République de Côte d'Ivoire</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F77F00;
+    --orange-dark: #D4600A;
+    --orange-light: #FFB347;
+    --white: #FDFAF5;
+    --green: #009A44;
+    --green-dark: #006B30;
+    --green-light: #4DC87A;
+    --gold: #C9973A;
+    --gold-light: #E8C06A;
+    --dark: #1A0F00;
+    --charcoal: #2C1A00;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem;
+    height: 80px;
+    background: rgba(26,15,0,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .flag-mini {
+    display: flex;
+    height: 32px;
+    width: 48px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .flag-mini .f1 { flex:1; background: var(--orange); }
+  .flag-mini .f2 { flex:1; background: var(--white); }
+  .flag-mini .f3 { flex:1; background: var(--green); }
+
+  .nav-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  .nav-title span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .nav-links a:hover { color: var(--orange-light); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(247,127,0,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 10% 80%, rgba(0,154,68,0.12) 0%, transparent 50%),
+      linear-gradient(135deg, #1A0F00 0%, #2C1A00 50%, #0D2B15 100%);
+  }
+
+  /* Geometric pattern overlay */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,151,58,0.03) 40px, rgba(201,151,58,0.03) 41px),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(201,151,58,0.03) 40px, rgba(201,151,58,0.03) 41px);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 4rem;
+    max-width: 700px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--orange-light);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: rgba(253,250,245,0.7);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 0.9rem 2rem;
+    background: var(--orange);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.15);
+    transition: left 0.4s;
+  }
+  .btn-primary:hover { background: var(--orange-dark); }
+  .btn-primary:hover::before { left: 100%; }
+
+  .btn-outline {
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover {
+    border-color: var(--green);
+    color: var(--green-light);
+  }
+
+  /* SVG Elephant decorative */
+  .hero-elephant {
+    position: absolute;
+    right: -2%;
+    bottom: 0;
+    width: 55%;
+    max-width: 700px;
+    opacity: 0.12;
+    animation: floatElephant 8s ease-in-out infinite;
+  }
+
+  .hero-elephant-small {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    width: 38%;
+    max-width: 500px;
+    opacity: 0.6;
+    filter: drop-shadow(0 20px 60px rgba(247,127,0,0.3));
+    animation: floatElephant 6s ease-in-out infinite reverse;
+  }
+
+  /* Tricolor stripe at bottom */
+  .hero-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 6px;
+    display: flex;
+  }
+  .hero-stripe span { flex: 1; }
+  .hero-stripe span:nth-child(1) { background: var(--orange); }
+  .hero-stripe span:nth-child(2) { background: var(--white); }
+  .hero-stripe span:nth-child(3) { background: var(--green); }
+
+  /* ===== SERVICES BAND ===== */
+  .services-band {
+    background: var(--orange);
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .service-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+  }
+  .service-item:hover { opacity: 0.7; }
+  .service-item svg { width: 24px; height: 24px; opacity: 0.9; }
+
+  /* ===== ABOUT SECTION ===== */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+
+  .about-visual {
+    position: relative;
+    background: linear-gradient(135deg, var(--green-dark), var(--dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 500px;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 40% 60%, rgba(247,127,0,0.2), transparent 70%);
+  }
+
+  .about-elephant-wrap {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    max-width: 420px;
+    filter: drop-shadow(0 10px 40px rgba(247,127,0,0.4));
+    animation: floatElephant 7s ease-in-out infinite;
+  }
+
+  .about-content {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--orange);
+    display: block;
+  }
+
+  .about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+    opacity: 0.85;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .stat {
+    text-align: left;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    opacity: 0.6;
+    margin-top: 0.3rem;
+  }
+
+  /* ===== FLAG SECTION ===== */
+  .flag-section {
+    background: var(--dark);
+    padding: 5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .flag-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(247,127,0,0.1), transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(0,154,68,0.1), transparent 50%);
+  }
+
+  .flag-display {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .flag-large {
+    display: flex;
+    width: 240px;
+    height: 160px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 2px rgba(201,151,58,0.3);
+    position: relative;
+    animation: flagWave 4s ease-in-out infinite;
+  }
+  .flag-large div { flex: 1; }
+  .flag-large .f1 { background: var(--orange); }
+  .flag-large .f2 { background: #FFFFFF; }
+  .flag-large .f3 { background: var(--green); }
+
+  .flag-section h2 {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .flag-section p {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ===== SERVICES SECTION ===== */
+  .services {
+    padding: 6rem 4rem;
+    background: var(--white);
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .services-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+  }
+  .services-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--charcoal);
+    opacity: 0.7;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(0,0,0,0.08);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2.5rem;
+    cursor: pointer;
+    transition: all 0.4s;
+    border-bottom: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--green));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .service-card:hover { background: #FFF8F0; }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(247,127,0,0.12), rgba(247,127,0,0.04));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s;
+  }
+  .service-card:hover .service-card-icon {
+    background: linear-gradient(135deg, rgba(247,127,0,0.25), rgba(247,127,0,0.1));
+  }
+  .service-card-icon svg { width: 26px; height: 26px; stroke: var(--orange); }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+  }
+  .service-card p {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: var(--charcoal);
+    opacity: 0.7;
+    margin-bottom: 1.25rem;
+  }
+  .service-card-link {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: gap 0.3s;
+  }
+  .service-card:hover .service-card-link { gap: 0.8rem; }
+
+  /* ===== ELEPHANT PRIDE SECTION ===== */
+  .pride-section {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--dark) 60%);
+    padding: 6rem 4rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .pride-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(247,127,0,0.08), transparent 70%);
+  }
+
+  .pride-elephants {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    width: 380px;
+  }
+
+  .pride-elephant {
+    width: 180px;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+    animation: floatElephant 5s ease-in-out infinite;
+  }
+  .pride-elephant:nth-child(2) {
+    width: 220px;
+    margin-left: -40px;
+    margin-top: 30px;
+    animation-delay: -2.5s;
+  }
+
+  .pride-content {
+    flex: 1;
+  }
+  .pride-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .pride-content h2 em {
+    font-style: italic;
+    color: var(--orange-light);
+  }
+  .pride-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+    max-width: 500px;
+  }
+
+  /* ===== NEWS SECTION ===== */
+  .news {
+    padding: 6rem 4rem;
+    background: #F5EFE6;
+  }
+
+  .news-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+  .news-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .news-header a {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1.5px;
+    background: rgba(0,0,0,0.06);
+  }
+
+  .news-card {
+    background: var(--white);
+    padding: 2rem;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .news-card:hover { background: #FFFBF5; }
+
+  .news-tag {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+  }
+  .news-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+  .news-card:first-child h3 { font-size: 1.5rem; }
+  .news-card p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+  .news-date {
+    font-size: 0.65rem;
+    color: var(--charcoal);
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== CONTACT SECTION ===== */
+  .contact {
+    background: var(--dark);
+    padding: 5rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    align-items: flex-start;
+  }
+  .contact-detail-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(247,127,0,0.15);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-detail-icon svg { width: 16px; height: 16px; stroke: var(--orange); }
+  .contact-detail-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.3rem;
+  }
+  .contact-detail-text {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+  }
+
+  .contact-hours {
+    background: rgba(247,127,0,0.08);
+    border: 1px solid rgba(247,127,0,0.2);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .contact-hours-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row strong { color: rgba(255,255,255,0.9); }
+
+  /* Contact form */
+  .contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  .form-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.5rem;
+  }
+  .form-control {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+  .form-control:focus { border-color: var(--orange); }
+  .form-control::placeholder { color: rgba(255,255,255,0.25); }
+  textarea.form-control { resize: none; height: 110px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #0D0800;
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-flag {
+    display: flex;
+    height: 20px;
+    width: 30px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .footer-flag div { flex: 1; }
+  .footer-flag .f1 { background: var(--orange); }
+  .footer-flag .f2 { background: #fff; }
+  .footer-flag .f3 { background: var(--green); }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .footer-text {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-motto {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes floatElephant {
+    0%, 100% { transform: translateY(0px) rotate(-1deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+  }
+  @keyframes flagWave {
+    0%, 100% { transform: perspective(600px) rotateY(-2deg) skewX(0deg); }
+    50% { transform: perspective(600px) rotateY(2deg) skewX(1deg); }
+  }
+
+  /* Scroll animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Diagonal stripe decorative */
+  .stripe-divider {
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .stripe-divider::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    right: -10%;
+    height: 80px;
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--dark) 100%);
+    clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <div class="flag-mini">
+      <div class="f1"></div>
+      <div class="f2"></div>
+      <div class="f3"></div>
+    </div>
+    <div class="nav-title">
+      Ambassade de Côte d'Ivoire
+      <span>République de Côte d'Ivoire</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#apropos">L'Ambassade</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#actualites">Actualités</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">République de Côte d'Ivoire — Présence Diplomatique</div>
+    <h1>La Force d'une<br><em>Nation Fière</em></h1>
+    <p class="hero-subtitle">L'Ambassade de Côte d'Ivoire vous accueille et vous accompagne dans vos démarches consulaires, diplomatiques et administratives.</p>
+    <div class="hero-ctas">
+      <a href="#services" class="btn-primary">Nos Services</a>
+      <a href="#contact" class="btn-outline">Prendre Rendez-vous</a>
+    </div>
+  </div>
+
+  <!-- Big decorative elephant silhouette -->
+  <svg class="hero-elephant" viewBox="0 0 600 500" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M480 320 C490 280, 500 240, 490 200 C480 160, 450 140, 420 130 C400 122, 380 120, 360 125 C340 100, 310 90, 280 95 C250 100, 230 115, 220 135 C200 128, 180 130, 165 140 C140 155, 130 180, 135 205 C138 218, 144 228, 152 236 C145 250, 142 268, 148 284 C155 305, 172 316, 192 318 C195 345, 192 365, 188 385 L200 385 L204 360 C208 360, 212 360, 216 360 L216 385 L228 385 L228 360 L240 360 L240 385 L252 385 C252 365, 248 340, 250 318 C262 316, 272 310, 280 300 C288 310, 298 316, 310 318 C310 340, 306 365, 308 385 L320 385 L320 360 L332 360 L332 385 L344 385 L344 360 L356 360 L358 385 L370 385 C366 365, 362 345, 365 320 C390 318, 410 305, 425 285 C440 265, 448 240, 445 218 C458 215, 472 210, 480 320 Z" opacity="0.3"/>
+    <!-- Trunk -->
+    <path d="M220 235 C210 240, 195 250, 185 265 C178 278, 180 295, 190 305 C182 315, 178 325, 182 335 L192 332 C190 325, 192 318, 198 312 C210 318, 220 315, 228 308 C226 295, 218 282, 218 268 C218 255, 222 244, 230 238" fill="none" stroke="white" stroke-width="8"/>
+    <!-- Ear -->
+    <ellipse cx="175" cy="195" rx="50" ry="65" transform="rotate(-10,175,195)" opacity="0.2"/>
+    <!-- Eye -->
+    <circle cx="270" cy="155" r="8" fill="white" opacity="0.8"/>
+    <circle cx="272" cy="155" r="4" fill="#1A0F00" opacity="0.8"/>
+    <!-- Tusk -->
+    <path d="M240 215 C230 230, 220 248, 218 260" stroke="white" stroke-width="5" fill="none" opacity="0.7"/>
+  </svg>
+
+  <!-- Smaller prominent elephant -->
+  <svg class="hero-elephant-small" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="elGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#F77F00;stop-opacity:0.9"/>
+        <stop offset="100%" style="stop-color:#C9973A;stop-opacity:0.7"/>
+      </linearGradient>
+    </defs>
+    <!-- Body -->
+    <ellipse cx="320" cy="270" rx="150" ry="110" fill="url(#elGrad)"/>
+    <!-- Head -->
+    <ellipse cx="200" cy="200" rx="90" ry="80" fill="url(#elGrad)"/>
+    <!-- Ear -->
+    <ellipse cx="148" cy="195" rx="55" ry="68" fill="#E86F00" opacity="0.7" transform="rotate(-8,148,195)"/>
+    <!-- Eye -->
+    <circle cx="178" cy="178" r="10" fill="white"/>
+    <circle cx="180" cy="178" r="5" fill="#1A0F00"/>
+    <circle cx="182" cy="176" r="2" fill="white"/>
+    <!-- Trunk -->
+    <path d="M148 225 C132 240, 118 260, 108 282 C100 300, 104 320, 116 332 C106 344, 102 358, 108 370 L118 368 C114 358, 116 348, 124 340 C136 348, 150 344, 158 334 C154 318, 145 300, 146 282 C148 266, 156 252, 165 240" fill="url(#elGrad)" stroke="#C9500A" stroke-width="2"/>
+    <!-- Tusk -->
+    <path d="M162 228 C148 245, 132 264, 124 278" stroke="rgba(255,255,255,0.8)" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- Legs -->
+    <rect x="210" y="350" width="38" height="80" rx="14" fill="url(#elGrad)"/>
+    <rect x="258" y="355" width="38" height="75" rx="14" fill="#E86F00"/>
+    <rect x="336" y="355" width="38" height="75" rx="14" fill="#E86F00"/>
+    <rect x="384" y="350" width="38" height="80" rx="14" fill="url(#elGrad)"/>
+    <!-- Tail -->
+    <path d="M465 280 C480 270, 492 278, 496 295 C499 310, 492 325, 480 330" fill="none" stroke="#E86F00" stroke-width="7" stroke-linecap="round"/>
+  </svg>
+
+  <div class="hero-stripe">
+    <span></span><span></span><span></span>
+  </div>
+</section>
+
+<!-- SERVICES BAND -->
+<div class="services-band">
+  <a href="#" class="service-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+    Demande de Visa
+  </a>
+  <a href="#" class="service-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    Passeport & État Civil
+  </a>
+  <a href="#" class="service-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    Légalisation de Docs
+  </a>
+  <a href="#" class="service-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Ivoiriens de l'Étranger
+  </a>
+  <a href="#" class="service-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Investir en CI
+  </a>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="apropos">
+  <div class="about-visual">
+    <svg class="about-elephant-wrap" viewBox="0 0 500 450" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="abElGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#F77F00;stop-opacity:1"/>
+          <stop offset="50%" style="stop-color:#C9973A;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#009A44;stop-opacity:0.8"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- Shadow -->
+      <ellipse cx="260" cy="420" rx="140" ry="20" fill="rgba(0,0,0,0.3)"/>
+      <!-- Body -->
+      <ellipse cx="275" cy="265" rx="145" ry="105" fill="url(#abElGrad)"/>
+      <!-- Head -->
+      <ellipse cx="148" cy="195" rx="88" ry="82" fill="url(#abElGrad)"/>
+      <!-- Ear detail -->
+      <ellipse cx="92" cy="190" rx="52" ry="65" fill="#D4600A" opacity="0.75" transform="rotate(-5,92,190)"/>
+      <ellipse cx="94" cy="190" rx="35" ry="48" fill="#E87820" opacity="0.4" transform="rotate(-5,94,190)"/>
+      <!-- Eye -->
+      <circle cx="128" cy="172" r="11" fill="white" filter="url(#glow)"/>
+      <circle cx="130" cy="172" r="6" fill="#1A0F00"/>
+      <circle cx="132" cy="170" r="2.5" fill="white"/>
+      <!-- Tusk -->
+      <path d="M115 218 C98 237, 80 258, 70 276" stroke="rgba(255,255,255,0.9)" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <!-- Trunk -->
+      <path d="M98 228 C80 246, 65 268, 55 292 C46 314, 50 336, 64 348 C54 360, 50 376, 58 388 L70 385 C64 375, 66 364, 76 356 C90 364, 106 360, 114 350 C108 334, 98 314, 100 294 C102 276, 112 260, 124 248" fill="url(#abElGrad)" stroke="#A04010" stroke-width="1.5"/>
+      <!-- Legs -->
+      <rect x="178" y="340" width="40" height="80" rx="15" fill="#E87820"/>
+      <rect x="228" y="346" width="40" height="74" rx="15" fill="#D4700A"/>
+      <rect x="300" y="346" width="40" height="74" rx="15" fill="#D4700A"/>
+      <rect x="350" y="340" width="40" height="80" rx="15" fill="#E87820"/>
+      <!-- Tail -->
+      <path d="M415 255 C432 244, 446 254, 450 272 C454 288, 446 306, 432 312" fill="none" stroke="#E87820" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="about-content reveal" id="apropos-content">
+    <div class="section-label">À Propos</div>
+    <h2>L'Éléphant d'Afrique, Symbole d'une Nation</h2>
+    <p>La Côte d'Ivoire, pays de l'éléphant — l'animal sacré qui orne son blason — est une nation d'Afrique de l'Ouest riche de cultures, de traditions et d'une économie en plein essor.</p>
+    <p>Notre ambassade est le pont entre la Côte d'Ivoire et le monde, offrant services, représentation diplomatique et soutien à nos compatriotes de la diaspora.</p>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">27M+</div>
+        <div class="stat-label">Habitants</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1960</div>
+        <div class="stat-label">Indépendance</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">66</div>
+        <div class="stat-label">Ambassades</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLAG SECTION -->
+<div class="flag-section">
+  <div class="flag-display">
+    <div class="flag-large">
+      <div class="f1"></div>
+      <div class="f2"></div>
+      <div class="f3"></div>
+    </div>
+    <div>
+      <h2>Drapeau de la République de Côte d'Ivoire</h2>
+      <p>Orange pour la savane et les richesses du sol • Blanc pour la paix et l'unité • Vert pour les forêts du sud et l'espérance</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <div class="section-label" style="justify-content:center">Services Consulaires</div>
+    <h2>Comment Pouvons-Nous Vous Aider ?</h2>
+    <p>Accédez à l'ensemble de nos services diplomatiques et consulaires depuis notre ambassade.</p>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <h3>Visa & Immigration</h3>
+      <p>Demandez votre visa touristique, professionnel, d'affaires ou de transit pour la République de Côte d'Ivoire.</p>
+      <a href="#" class="service-card-link">En savoir plus →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <h3>État Civil & Passeport</h3>
+      <p>Renouvellement de passeport, extrait de naissance, acte de mariage et autres documents d'état civil.</p>
+      <a href="#" class="service-card-link">En savoir plus →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+      </div>
+      <h3>Légalisation de Documents</h3>
+      <p>Apostille, légalisation et authentification de documents officiels pour usage à l'étranger.</p>
+      <a href="#" class="service-card-link">En savoir plus →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Ivoiriens de la Diaspora</h3>
+      <p>Services dédiés aux Ivoiriens résidant à l'étranger : inscription consulaire, aide sociale et juridique.</p>
+      <a href="#" class="service-card-link">En savoir plus →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Protection Consulaire</h3>
+      <p>Assistance aux ressortissants ivoiriens en situation de détresse, arrestation ou urgence médicale.</p>
+      <a href="#" class="service-card-link">En savoir plus →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h3>Commerce & Investissement</h3>
+      <p>Opportunités d'affaires, partenariats commerciaux et informations pour investir en Côte d'Ivoire.</p>
+      <a href="#" class="service-card-link">En savoir plus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ELEPHANT PRIDE -->
+<section class="pride-section">
+  <div class="pride-elephants">
+    <!-- Elephant 1 (smaller, back) -->
+    <svg class="pride-elephant" viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="230" cy="235" rx="120" ry="90" fill="rgba(0,154,68,0.7)"/>
+      <ellipse cx="120" cy="170" rx="75" ry="68" fill="rgba(0,154,68,0.7)"/>
+      <ellipse cx="66" cy="165" rx="42" ry="56" fill="rgba(0,100,45,0.6)" transform="rotate(-8,66,165)"/>
+      <circle cx="102" cy="152" r="9" fill="white"/>
+      <circle cx="104" cy="152" r="5" fill="#0D2B15"/>
+      <path d="M74 198 C58 214,44 234,34 254 C26 272,30 290,42 300" stroke="rgba(0,154,68,0.9)" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <rect x="148" y="295" width="32" height="65" rx="12" fill="rgba(0,130,57,0.7)"/>
+      <rect x="190" y="300" width="32" height="60" rx="12" fill="rgba(0,110,48,0.7)"/>
+      <rect x="256" y="300" width="32" height="60" rx="12" fill="rgba(0,110,48,0.7)"/>
+      <rect x="298" y="295" width="32" height="65" rx="12" fill="rgba(0,130,57,0.7)"/>
+    </svg>
+    <!-- Elephant 2 (larger, front) -->
+    <svg class="pride-elephant" viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="e2g" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#F77F00"/>
+          <stop offset="100%" style="stop-color:#C9973A"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="240" cy="225" rx="135" ry="100" fill="url(#e2g)"/>
+      <ellipse cx="120" cy="165" rx="85" ry="78" fill="url(#e2g)"/>
+      <ellipse cx="60" cy="162" rx="50" ry="62" fill="#D4600A" opacity="0.7" transform="rotate(-6,60,162)"/>
+      <ellipse cx="62" cy="162" rx="32" ry="44" fill="#E87820" opacity="0.4" transform="rotate(-6,62,162)"/>
+      <circle cx="100" cy="146" r="11" fill="white"/>
+      <circle cx="102" cy="146" r="6" fill="#1A0F00"/>
+      <circle cx="104" cy="144" r="2.5" fill="white"/>
+      <path d="M95 210 C76 228,60 250,50 272 C42 290,46 312,58 322 C50 334,46 350,52 364 L62 362 C58 350,60 340,70 332 C82 342,98 336,106 326 C100 310,90 290,92 272 C94 254,104 238,116 226" fill="url(#e2g)" stroke="#A04010" stroke-width="1.5"/>
+      <path d="M106 212 C88 232, 72 252, 62 270" stroke="rgba(255,255,255,0.85)" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <rect x="162" y="300" width="36" height="70" rx="14" fill="#E87820"/>
+      <rect x="208" y="308" width="36" height="62" rx="14" fill="#D4700A"/>
+      <rect x="278" y="308" width="36" height="62" rx="14" fill="#D4700A"/>
+      <rect x="324" y="300" width="36" height="70" rx="14" fill="#E87820"/>
+      <path d="M368 215 C386 204,400 214,403 232 C406 248,398 266,384 272" fill="none" stroke="#E87820" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="pride-content reveal">
+    <div class="section-label" style="color:rgba(255,255,255,0.5)">
+      <span style="background:rgba(255,255,255,0.3); display:block; width:30px; height:1px;"></span>
+      Symbole National
+    </div>
+    <h2>L'Éléphant,<br>Gardien de <em>l'Ivoire</em></h2>
+    <p>Symbole de sagesse, de force et de longévité, l'éléphant est au cœur de l'identité ivoirienne. Il incarne les valeurs profondes d'un peuple uni, fier de son héritage et tourné vers l'avenir.</p>
+    <p style="margin-top:1rem">La Côte d'Ivoire doit son nom à ce noble animal, autrefois abondant sur ses terres luxuriantes. Aujourd'hui, il est protégé et célébré comme trésor national.</p>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news" id="actualites">
+  <div class="news-header reveal">
+    <div>
+      <div class="section-label">Actualités</div>
+      <h2>Dernières Nouvelles</h2>
+    </div>
+    <a href="#">Toutes les actualités →</a>
+  </div>
+
+  <div class="news-grid reveal">
+    <div class="news-card">
+      <div class="news-tag">Diplomatie</div>
+      <h3>Signature d'un accord de coopération économique entre la Côte d'Ivoire et ses partenaires européens</h3>
+      <p>Dans un contexte de renforcement des partenariats stratégiques, l'Ambassade annonce la signature d'un nouvel accord visant à stimuler les échanges commerciaux et les investissements étrangers en Côte d'Ivoire.</p>
+      <div class="news-date">15 Février 2026</div>
+    </div>
+    <div class="news-card">
+      <div class="news-tag">Services</div>
+      <h3>Nouveaux horaires consulaires à compter du 1er mars 2026</h3>
+      <p>L'ambassade étend ses heures d'ouverture pour mieux servir les ressortissants ivoiriens.</p>
+      <div class="news-date">10 Février 2026</div>
+    </div>
+    <div class="news-card">
+      <div class="news-tag">Culture</div>
+      <h3>Journée de la Culture Ivoirienne — Abidjan s'invite en ambassade</h3>
+      <p>Célébration des arts, de la gastronomie et des traditions ivoiriennes à l'occasion de la Journée Nationale.</p>
+      <div class="news-date">02 Février 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info reveal">
+    <div class="section-label" style="color:rgba(247,127,0,0.9)">
+      <span style="background:var(--orange); display:block; width:30px; height:1px;"></span>
+      Contact & Localisation
+    </div>
+    <h2>Nous Contacter</h2>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail-label">Adresse</div>
+        <div class="contact-detail-text">102 Avenue Raymond Poincaré<br>75116 Paris, France</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 10.37 19.79 19.79 0 0 1 1.61 1.86 2 2 0 0 1 3.59 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 15z"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail-label">Téléphone</div>
+        <div class="contact-detail-text">+33 (0)1 53 64 62 48</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-text">contact@ambaci-paris.fr</div>
+      </div>
+    </div>
+
+    <div class="contact-hours">
+      <div class="contact-hours-title">Horaires d'Ouverture</div>
+      <div class="hours-row"><strong>Lundi – Vendredi</strong><span>09h30 – 12h30 / 14h00 – 16h30</span></div>
+      <div class="hours-row"><strong>Samedi & Dimanche</strong><span>Fermé</span></div>
+      <div class="hours-row"><strong>Jours Fériés CI</strong><span>Fermé</span></div>
+    </div>
+  </div>
+
+  <div class="contact-form reveal">
+    <h3>Envoyer un Message</h3>
+    <div class="form-group">
+      <label class="form-label">Votre Nom Complet</label>
+      <input type="text" class="form-control" placeholder="Jean Konan Kouassi">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Adresse Email</label>
+      <input type="email" class="form-control" placeholder="votre@email.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Objet</label>
+      <input type="text" class="form-control" placeholder="Demande de visa, passeport...">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Message</label>
+      <textarea class="form-control" placeholder="Décrivez votre demande..."></textarea>
+    </div>
+    <button class="btn-primary" style="width:100%; text-align:center; margin-top:0.5rem">
+      Envoyer le Message
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-flag">
+      <div class="f1"></div>
+      <div class="f2"></div>
+      <div class="f3"></div>
+    </div>
+    <div class="footer-text">© 2026 Ambassade de la République de Côte d'Ivoire. Tous droits réservés.</div>
+  </div>
+  <div class="footer-motto">« Union – Discipline – Travail »</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(10,6,0,0.97)';
+    } else {
+      nav.style.background = 'rgba(26,15,0,0.92)';
+    }
+  });
+
+  // Smooth active nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
